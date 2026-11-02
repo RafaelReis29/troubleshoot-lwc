@@ -1,59 +1,58 @@
-# troubleshoot-lwc
-Download Components for the Troubleshooting Lightning Web Components Trailhead Badge
+# Salesforce DX Project
 
-## Open Visual Studio Code and clone this GitHub repo.
+Salesforce DX is a development approach that brings source-driven development, team collaboration, and continuous integration to the Salesforce Platform. Instead of working directly in an org through a web browser, you work with metadata as source files in a local DX project, track changes in version control, and deploy through automated processes.
 
-1. In Visual Studio Code, open the Command Palette by pressing **Ctrl+Shift+P** (Windows) or **Cmd+Shift+P** (macOS).
-2. Enter `git`.
-3. Select **Git: Clone**. 
-4. Enter `https://github.com/developerforce/troubleshoot-lwc.git` and press **Enter**.
-5. Select **Desktop** and then click **Select Repository Location**.
+This project template gets you started with the tools and structure you need to build Salesforce applications using source control, scratch orgs, and the Salesforce CLI.
 
-## Update Salesforce CLI
-It's always a good idea to update to the latest CLI
+## Prerequisites
 
-1. Click **View**, and then select **Terminal** to open a terminal in Visual Studio Code.
-2. Update the CLI by running this command in the terminal:
-```
-sf update
-```
+Before you start, make sure you have:
 
-## Create DX Project
+- **Salesforce CLI** - Download from [developer.salesforce.com/tools/salesforcecli](https://developer.salesforce.com/tools/salesforcecli). See [Install Salesforce CLI](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_install_cli.htm) for details.
+- **VS Code with Salesforce Extension Pack** - See [Installation Instructions](https://developer.salesforce.com/docs/platform/sfvscode-extensions/guide/install.html) for details. Includes the Agentforce Vibes extension.
+- **A development org** - Sign up for a free Developer Edition org [here](https://developer.salesforce.com/signup).
+- **Dev Hub enabled** (optional, required to create scratch orgs) - You can enable Dev Hub in your development org under Setup > Dev Hub.  See [Provide Developers Access to Salesforce DX Tools](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_setup_dx_tools.htm).
 
-1. Open the Command Palette.
-2. Enter `sfdx`.
-3. Select **SFDX: Create Project**. 
-4. Select **Standard**.
-5. Enter `troubleshoot-lwc` as the project name and press **Enter**.
-6. Select **Desktop** for folder to store the project.
-7. Click **Create Project**.
-8. Click **Overwrite**.
+## Project Structure
 
-## Authorize Your Trailhead Playground
+Your DX project follows this structure:
 
-1. Open the Command Palette.
-2. Enter `sfdx`.
-3. Select **SFDX: Authorize an Org**.
-4. Press **Enter** to accept the Project Default login URL option.
-5. Press **Enter** to accept the default alias.
-Salesforce login opens in a separate browser window.
-6. Log in using your Trailhead Playground credentials.
-7. If you're prompted to allow access, click **Allow**.
+- **`force-app/main/default/`** - Your metadata source files live in this default package directory. You can configure additional package directories in the `sfdx-project.json` file.
+- **`config/`** - Scratch org definitions and project settings
+- **`scripts/`** - Automation scripts for common tasks
+- **`sfdx-project.json`** - Project manifest that defines package directories, namespace, API version, and other project-level settings
 
-## Deploy to Playground
+See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm).
 
-1. Right-click the **default** folder under force-app/main.
-2. Click **SFDX: Deploy This Source to Org**.
+## Get Started
 
-## Assign Permission Set
+Ready to start developing? The [Get Started with Salesforce DX](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_get_started_dx.htm) guide walks you through your first project, from creating a scratch org to creating a simple Apex class or LWC to deploying your code to a sandbox.
 
-1. Click **View**, and then select **Terminal**. A terminal window opens in Visual Studio Code. The terminal defaults to the top-level directory of the project.
-2. Assign the Solutions Full Access permission set to the default user by running this command in the terminal:
-```
-sf org assign permset -n Solutions_Full_Access
-```
+## Common Salesforce CLI Commands
 
-## View the Solutions App
+Here are common CLI commands that you'll use the most:
 
-1. In your Trailhead Playground, in App Launcher, search for `sol`.
-2. Select **Solutions**.
+- `sf org login web`: Authorize an org
+- `sf org open`: Open your org in a browser
+- `sf org create scratch`: Create a scratch org
+- `sf project deploy start`: Deploy metadata to your org
+- `sf project retrieve start`: Retrieve metadata from your org
+- `sf template generate <artifact>`: Scaffold new components, such as Apex classes and triggers, LWC components, Lightning apps, and more
+- `sf apex <command>`: Run Apex tests, run anonymous Apex blocks, and view logs
+- `sf data <command>`: Work with test data
+- `sf alias <command>`: Manage org aliases
+- `sf config <command>`: Configure CLI settings
+
+## Use Agentforce Vibes to Build Lightning Apps
+
+Transform your ideas into custom Lightning apps that extend CRM workflows directly in Lightning Experience. Through natural conversations with Agentforce Vibes, implement custom objects and fields, complex business logic, and dynamic UI components. See [Build a Lightning App Using Agentforce Vibes](https://developer.salesforce.com/docs/platform/einstein-for-devs/guide/lexapp-overview.html).
+
+## Additional Resources
+
+- [Agentforce Vibes Developer Guide](https://developer.salesforce.com/docs/platform/einstein-for-devs/guide/einstein-overview.html)
+- [Salesforce CLI Installation Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
+- [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/)
+- [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/)
+- [Salesforce CLI Plugin Development Guide](https://developer.salesforce.com/docs/platform/salesforce-cli-plugin/guide/conceptual-overview.html)
+- [Salesforce VS Code Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
+
